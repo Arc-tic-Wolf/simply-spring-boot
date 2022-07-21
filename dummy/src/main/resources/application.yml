@@ -4,6 +4,8 @@ spring:
     show-sql: true
     hibernate:
       ddl-auto: update
+
+
   datasource:
     url: jdbc:postgresql://192.168.122.166:5432/dummy
     username: dummy

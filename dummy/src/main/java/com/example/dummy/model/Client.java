@@ -1,9 +1,14 @@
 package com.example.dummy.model;
 
+import lombok.Builder;
+import org.hibernate.envers.Audited;
+
 import javax.persistence.*;
 
 @Entity
+@Builder
 @Table(name="clients")
+@Audited
 public class Client {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -11,14 +16,14 @@ public class Client {
     @Column(name="first_name")
     private String firstName;
     @Column(name="last_name")
-    private String last_name;
+    private String lastName;
     @Column(name="role")
     private String role;
 
-    public Client(long id, String firstName, String last_name, String role) {
+    public Client(long id, String firstName, String lastName, String role) {
         this.id = id;
         this.firstName = firstName;
-        this.last_name = last_name;
+        this.lastName = lastName;
         this.role = role;
     }
     public Client(){
@@ -37,16 +42,16 @@ public class Client {
         return firstName;
     }
 
-    public void setFirstName(String first_name) {
+    public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 
-    public String getLast_name() {
-        return last_name;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setLast_name(String last_name) {
-        this.last_name = last_name;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getRole() {
@@ -62,7 +67,7 @@ public class Client {
         return "Client{" +
                 "id=" + id +
                 ", first_name='" + firstName + '\'' +
-                ", last_name='" + last_name + '\'' +
+                ", last_name='" + lastName + '\'' +
                 ", role='" + role + '\'' +
                 '}';
     }
