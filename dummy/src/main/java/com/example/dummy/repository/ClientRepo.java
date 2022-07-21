@@ -7,5 +7,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ClientRepo extends JpaRepository<Client,Long> {
     Client findByFirstName(String firstName);
+    Client findByLastName (String lastName);
+    Client findByRole(String role);
 
 }

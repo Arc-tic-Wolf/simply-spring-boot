@@ -2,13 +2,15 @@ package com.example.dummy.model;
 
 import lombok.Builder;
 import org.hibernate.envers.Audited;
+import org.hibernate.envers.NotAudited;
+import org.hibernate.envers.RelationTargetAuditMode;
 
 import javax.persistence.*;
 
 @Entity
 @Builder
 @Table(name="clients")
-@Audited
+@Audited(withModifiedFlag=true)
 public class Client {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,6 +19,7 @@ public class Client {
     private String firstName;
     @Column(name="last_name")
     private String lastName;
+    @Audited(withModifiedFlag = false) //@NotAudited @AuditOverride(forClass= Client.class,isAudited=true/false) @Audited(withModifiedFlag=false)
     @Column(name="role")
     private String role;
 
