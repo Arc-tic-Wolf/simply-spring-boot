@@ -1,4 +1,4 @@
-# Simply Spring Boot
+# Simply Spring Boot < Prerequisites - OpenJDK 11/17 >
 
 First time working with Spring Boot.
 
@@ -31,5 +31,10 @@ node m.js
 http://localhost:9000/retrieve
 ```
 
-
+### For building project and deploying war
+```
+cd dummy
+./gradlew bootWar
+```
+### Built war can be found in dummy/build/libs/launcher.war
 
